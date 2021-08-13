@@ -884,52 +884,73 @@ int main() {
 //	cout << lowestI << "-razriadi ,count- " << lowest << endl;
 //	system("pause");
 //}
-struct baseData
-{
-	int money;
-	int kurs;	
-	string FIO;
-};
+//struct baseData
+//{
+//	int money;
+//	int kurs;	
+//	string FIO;
+//};
+//int main() {
+//	baseData blanck[100];
+//	int x;
+//	cin >> x;
+//	cin.ignore(32767, '\n');
+//	for (int i = 0; i <= x; i++) {
+//		getline(cin, blanck[i].FIO);
+//	}
+//	string tempdata;
+//	for (int i = 0; i <=x; i++) {
+//		tempdata = blanck[i].FIO;
+//		tempdata = tempdata.erase(0, tempdata.find(" ")+1);
+//		tempdata = tempdata.erase(0, tempdata.find(" ") + 1);
+//		tempdata = tempdata.erase(0, tempdata.find(" ") + 1);
+//		string trash;
+//		trash = tempdata.substr(0, tempdata.find(" "));
+//		blanck[i].kurs = atoi(trash.c_str());
+//		tempdata = tempdata.erase(0, tempdata.find(" ") + 1);
+//		blanck[i].money= atoi(tempdata.c_str());
+//		tempdata = "";
+//		trash = "";
+//	}
+//	for (int i = 0; i <= 4; i++) {
+//		cout << "KURS-" << i+1 << endl;
+//		int maxMoney = 0;
+//		int studcounter = 0;
+//		bool check = 0;
+//		for (int j = 0; j <= x; j++) {
+//				for (int k = 0; k <= x; k++) {
+//					if (blanck[k].money > maxMoney&&blanck[k].kurs==i+1) {
+//						maxMoney = blanck[k].money;
+//					}
+//				}
+//				for (int k = 0; k <= x; k++) {
+//					if (blanck[k].money == maxMoney && check == 0) {
+//						cout << blanck[k].FIO << endl;
+//					}
+//				}
+//				check = 1;
+//			maxMoney = 0;
+//		}
+//	}
+//}
 int main() {
-	baseData blanck[100];
-	int x;
-	cin >> x;
-	cin.ignore(32767, '\n');
-	for (int i = 0; i <= x; i++) {
-		getline(cin, blanck[i].FIO);
+	int a[10];
+	for (int i = 0; i < 10; i++) {
+		cin >> a[i];
 	}
-	string tempdata;
-	for (int i = 0; i <=x; i++) {
-		tempdata = blanck[i].FIO;
-		tempdata = tempdata.erase(0, tempdata.find(" ")+1);
-		tempdata = tempdata.erase(0, tempdata.find(" ") + 1);
-		tempdata = tempdata.erase(0, tempdata.find(" ") + 1);
-		string trash;
-		trash = tempdata.substr(0, tempdata.find(" "));
-		blanck[i].kurs = atoi(trash.c_str());
-		tempdata = tempdata.erase(0, tempdata.find(" ") + 1);
-		blanck[i].money= atoi(tempdata.c_str());
-		tempdata = "";
-		trash = "";
-	}
-	for (int i = 0; i <= 4; i++) {
-		cout << "KURS-" << i+1 << endl;
-		int maxMoney = 0;
-		int studcounter = 0;
-		bool check = 0;
-		for (int j = 0; j <= x; j++) {
-				for (int k = 0; k <= x; k++) {
-					if (blanck[k].money > maxMoney&&blanck[k].kurs==i+1) {
-						maxMoney = blanck[k].money;
-					}
-				}
-				for (int k = 0; k <= x; k++) {
-					if (blanck[k].money == maxMoney && check == 0) {
-						cout << blanck[k].FIO << endl;
-					}
-				}
-				check = 1;
-			maxMoney = 0;
+	int Summ = -1;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			if (i != j && (a[i]%2!=0 && a[j]%2==0||a[j]%2!=0 && a[i]%2==0)&&a[i]+a[j]>Summ) {
+				Summ = a[i]+a[j];
+				cout << a[i] << " " << a[j] << endl;
+			}
 		}
 	}
+	if (Summ > -1) {
+		cout <<"kontrol' proiden ";
+		cout << Summ << endl;
+	}
+	else { cout << "Kontrol' ne proiden"; }
+	return 0;
 }
